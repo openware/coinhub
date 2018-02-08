@@ -12,7 +12,7 @@ var getArgs = function () {
   var parser = new argumentParser({
     version: pjson.version,
     addHelp: true,
-    description: 'BitGo-Express'
+    description: 'CoinHub'
   });
 
   parser.addArgument(
@@ -119,7 +119,7 @@ server.listen(args.port, args.bind, function () {
   if (!((args.port == 80 && !args.keypath) || (args.port == 443 && args.keypath))) {
     baseUri += ":" + args.port;
   }
-  console.log('BitGo-Express running');
+  console.log('CoinHub running');
   console.log('Environment: ' + args.env);
   console.log('Base URI: ' + baseUri);
   if (args.customrooturi) {
