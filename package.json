@@ -1,6 +1,6 @@
 {
   "name": "coinhub",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "BitGo proxy for peatio.tech",
   "homepage": "https://github.com/rubykube/coinhub",
   "scripts": {
@@ -11,15 +11,9 @@
     "url": "https://github.com/rubykube/coinhub.git"
   },
   "author": {
-    "name": "Louis Bellet",
-    "email": "lbellet@heliostech.fr"
+    "name": "Ali Shanaakh",
+    "email": "ashanaakh@heliostech.fr"
   },
-  "contributors": [
-    {
-      "name": "Ali Shanaakh",
-      "email": "ashanaakh@heliostech.fr"
-    }
-  ],
   "license": "LGPL-3.0",
   "bugs": {
     "url": "https://github.com/rubykube/coinhub/issues"
