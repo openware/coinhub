@@ -185,9 +185,9 @@ bitcoinjs-message@~2.0.0:
     varuint-bitcoin "^1.0.4"
     wif "^2.0.1"
 
-bitgo@^4.19.0:
-  version "4.19.0"
-  resolved "https://registry.yarnpkg.com/bitgo/-/bitgo-4.19.0.tgz#024390df266e12c597b0f264ad7d8c8bfe74c4d9"
+bitgo@^4.20.0:
+  version "4.20.0"
+  resolved "https://registry.yarnpkg.com/bitgo/-/bitgo-4.20.0.tgz#30264cf746ad18e5655bebc96e5ef5a4e0edb447"
   dependencies:
     argparse "~0.1.16"
     assert "0.4.9"
@@ -208,7 +208,7 @@ bitgo@^4.19.0:
     http-proxy "1.11.1"
     lodash "4.13.1"
     minimist "0.2.0"
-    moment "~2.18.1"
+    moment "~2.20.1"
     morgan "1.9.0"
     prova-lib "0.2.9"
     ripple-lib "~0.17.7"
@@ -971,9 +971,9 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
-moment@~2.18.1:
-  version "2.18.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
+moment@~2.20.1:
+  version "2.20.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.20.1.tgz#d6eb1a46cbcc14a2b2f9434112c1ff8907f313fd"
 
 morgan@1.9.0, morgan@^1.9.0:
   version "1.9.0"
