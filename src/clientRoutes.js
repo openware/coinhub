@@ -1,7 +1,6 @@
 const bodyParser = require('body-parser');
 
 const BitGoJS = require('bitgo');
-const TransactionBuilder = require('./transactionBuilder');
 const common = require('./common');
 const Promise = require('bluebird');
 const co = Promise.coroutine;
@@ -9,7 +8,7 @@ const url = require('url');
 const _ = require('lodash');
 const pjson = require('../package.json');
 
-const BITGOEXPRESS_USER_AGENT = 'BitGoExpress/' + pjson.version;
+const COINHUB_USER_AGENT = 'CoinHub/' + pjson.version;
 
 const handleLogin = function(req) {
   const username = req.body.username || req.body.email;
@@ -158,17 +157,6 @@ const handleFanOutUnspents = function(req) {
   return req.bitgo.wallets().get({ id: req.params.id })
   .then(function(wallet) {
     return wallet.fanOutUnspents(req.body);
-  });
-};
-
-const handleCalculateMinerFeeInfo = function(req) {
-  return TransactionBuilder.calculateMinerFeeInfo({
-    bitgo: req.bitgo,
-    feeRate: req.body.feeRate,
-    nP2SHInputs: req.body.nP2SHInputs,
-    nP2PKHInputs: req.body.nP2PKHInputs,
-    nP2SHP2WSHInputs: req.body.nP2SHP2WSHInputs,
-    nOutputs: req.body.nOutputs
   });
 };
 
@@ -409,7 +397,7 @@ const prepareBitGo = function(args) {
       }
     }
 
-    const userAgent = req.headers['user-agent'] ? BITGOEXPRESS_USER_AGENT + ' ' + req.headers['user-agent'] : BITGOEXPRESS_USER_AGENT;
+    const userAgent = req.headers['user-agent'] ? COINHUB_USER_AGENT + ' ' + req.headers['user-agent'] : COINHUB_USER_AGENT;
     params.accessToken = accessToken;
     params.userAgent = userAgent;
 
@@ -473,7 +461,6 @@ exports = module.exports = function(app, args) {
   app.post('/api/v[12]/decrypt', parseBody, prepareBitGo(args), promiseWrapper(handleDecrypt, args));
   app.post('/api/v[12]/encrypt', parseBody, prepareBitGo(args), promiseWrapper(handleEncrypt, args));
   app.post('/api/v[12]/verifyaddress', parseBody, prepareBitGo(args), promiseWrapper(handleVerifyAddress, args));
-  app.post('/api/v[12]/calculateminerfeeinfo', parseBody, prepareBitGo(args), promiseWrapper(handleCalculateMinerFeeInfo, args));
 
   app.post('/api/v1/keychain/local', parseBody, prepareBitGo(args), promiseWrapper(handleCreateLocalKeyChain, args));
   app.post('/api/v1/keychain/derive', parseBody, prepareBitGo(args), promiseWrapper(handleDeriveLocalKeyChain, args));
@@ -524,7 +511,6 @@ exports = module.exports = function(app, args) {
   app.post('/api/v2/:coin/canonicaladdress', parseBody, prepareBitGo(args), promiseWrapper(handleCanonicalAddress, args));
   app.post('/api/v2/:coin/verifyaddress', parseBody, prepareBitGo(args), promiseWrapper(handleV2VerifyAddress, args));
   app.put('/api/v2/:coin/pendingapprovals/:id', parseBody, prepareBitGo(args), promiseWrapper(handleV2PendingApproval, args));
-
 
   // any other API v2 call
   app.use('/api/v2/user/*', parseBody, prepareBitGo(args), promiseWrapper(handleV2UserREST, args));
