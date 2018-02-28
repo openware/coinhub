@@ -1,7 +1,7 @@
 const bodyParser = require('body-parser');
 
 const BitGoJS = require('bitgo');
-const TransactionBuilder = require('./transactionBuilder');
+const TransactionBuilder = require('./TransactionBuilder');
 const common = require('./common');
 const Promise = require('bluebird');
 const co = Promise.coroutine;
@@ -9,7 +9,7 @@ const url = require('url');
 const _ = require('lodash');
 const pjson = require('../package.json');
 
-const BITGOEXPRESS_USER_AGENT = 'BitGoExpress/' + pjson.version;
+const COINHUB_USER_AGENT = 'CoinHub/' + pjson.version;
 
 const handleLogin = function(req) {
   const username = req.body.username || req.body.email;
@@ -409,7 +409,7 @@ const prepareBitGo = function(args) {
       }
     }
 
-    const userAgent = req.headers['user-agent'] ? BITGOEXPRESS_USER_AGENT + ' ' + req.headers['user-agent'] : BITGOEXPRESS_USER_AGENT;
+    const userAgent = req.headers['user-agent'] ? COINHUB_USER_AGENT + ' ' + req.headers['user-agent'] : COINHUB_USER_AGENT;
     params.accessToken = accessToken;
     params.userAgent = userAgent;
 
@@ -524,7 +524,6 @@ exports = module.exports = function(app, args) {
   app.post('/api/v2/:coin/canonicaladdress', parseBody, prepareBitGo(args), promiseWrapper(handleCanonicalAddress, args));
   app.post('/api/v2/:coin/verifyaddress', parseBody, prepareBitGo(args), promiseWrapper(handleV2VerifyAddress, args));
   app.put('/api/v2/:coin/pendingapprovals/:id', parseBody, prepareBitGo(args), promiseWrapper(handleV2PendingApproval, args));
-
 
   // any other API v2 call
   app.use('/api/v2/user/*', parseBody, prepareBitGo(args), promiseWrapper(handleV2UserREST, args));
