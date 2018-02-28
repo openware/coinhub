@@ -1,7 +1,6 @@
 const bodyParser = require('body-parser');
 
 const BitGoJS = require('bitgo');
-const TransactionBuilder = require('./TransactionBuilder');
 const common = require('./common');
 const Promise = require('bluebird');
 const co = Promise.coroutine;
@@ -158,17 +157,6 @@ const handleFanOutUnspents = function(req) {
   return req.bitgo.wallets().get({ id: req.params.id })
   .then(function(wallet) {
     return wallet.fanOutUnspents(req.body);
-  });
-};
-
-const handleCalculateMinerFeeInfo = function(req) {
-  return TransactionBuilder.calculateMinerFeeInfo({
-    bitgo: req.bitgo,
-    feeRate: req.body.feeRate,
-    nP2SHInputs: req.body.nP2SHInputs,
-    nP2PKHInputs: req.body.nP2PKHInputs,
-    nP2SHP2WSHInputs: req.body.nP2SHP2WSHInputs,
-    nOutputs: req.body.nOutputs
   });
 };
 
@@ -473,7 +461,6 @@ exports = module.exports = function(app, args) {
   app.post('/api/v[12]/decrypt', parseBody, prepareBitGo(args), promiseWrapper(handleDecrypt, args));
   app.post('/api/v[12]/encrypt', parseBody, prepareBitGo(args), promiseWrapper(handleEncrypt, args));
   app.post('/api/v[12]/verifyaddress', parseBody, prepareBitGo(args), promiseWrapper(handleVerifyAddress, args));
-  app.post('/api/v[12]/calculateminerfeeinfo', parseBody, prepareBitGo(args), promiseWrapper(handleCalculateMinerFeeInfo, args));
 
   app.post('/api/v1/keychain/local', parseBody, prepareBitGo(args), promiseWrapper(handleCreateLocalKeyChain, args));
   app.post('/api/v1/keychain/derive', parseBody, prepareBitGo(args), promiseWrapper(handleDeriveLocalKeyChain, args));
