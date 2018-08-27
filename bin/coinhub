@@ -17,7 +17,7 @@ var getArgs = function () {
 
   parser.addArgument(
   ['-p', '--port'], {
-    defaultValue: 3080,
+    defaultValue: 8080,
     help: 'Port to listen on'
   });
 
