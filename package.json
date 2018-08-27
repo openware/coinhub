@@ -1,6 +1,6 @@
 {
   "name": "coinhub",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "BitGo proxy for peatio.tech",
   "homepage": "https://github.com/rubykube/coinhub",
   "scripts": {
