@@ -1,7 +1,6 @@
 VERSION	?= $(shell cat VERSION || echo latest)
 NAME		?= coinhub
 IMAGE		?= rubykube/$(NAME):$(VERSION)
-PORT		?= 3080
 
 .PHONY: default build run push
 
@@ -13,7 +12,7 @@ build:
 
 run:
 	@echo '> Starting "$(NAME)" container...'
-	@docker run -p 3080:3080 -d $(IMAGE)
+	@docker run -p 8080:8080 -d $(IMAGE)
 
 push:
 	docker push $(IMAGE)
