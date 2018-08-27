@@ -23,7 +23,7 @@ var getArgs = function () {
 
   parser.addArgument(
   ['-b', '--bind'], {
-    defaultValue: 'localhost',
+    defaultValue: '0.0.0.0',
     help: 'Bind to given address to listen for connections (default: localhost)'
   });
 
