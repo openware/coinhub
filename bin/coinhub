@@ -66,7 +66,7 @@ var getArgs = function () {
 args = getArgs();
 
 if (args.env === 'prod') {
-  if (args.bind !== 'localhost') {
+  if (args.bind == 'localhost') {
     throw new Error("Bind address can't be localhost");
   }
 }
