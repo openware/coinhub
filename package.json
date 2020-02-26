@@ -19,13 +19,14 @@
     "url": "https://github.com/rubykube/coinhub/issues"
   },
   "dependencies": {
-    "bitgo": "^4.20.0",
+    "bitgo": "^9.5.3",
     "bluebird": "^3.5.1",
     "express": "^4.16.2",
     "fs": "^0.0.1-security",
     "http-proxy": "^1.16.2",
     "morgan": "^1.9.0",
     "path": "^0.12.7",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "argparse": "^0.1.16"
   }
 }
