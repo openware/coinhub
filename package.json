@@ -19,7 +19,8 @@
     "url": "https://github.com/rubykube/coinhub/issues"
   },
   "dependencies": {
-    "bitgo": "^11.1.3",
+    "bitgo": "^11.4.0",
+    "bitgo-utxo-lib": "^1.8.0",
     "bluebird": "^3.5.1",
     "express": "^4.16.2",
     "fs": "^0.0.1-security",
