@@ -1,4 +1,4 @@
-FROM node:9
+FROM node:10
 
 ENV HOME /app
 ENV BITGO_ENV test
