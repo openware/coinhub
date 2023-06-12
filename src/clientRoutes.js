@@ -183,6 +183,7 @@ const handleREST = function(req, res, next) {
   const method = req.method;
   const bitgo = req.bitgo;
   const bitgoURL = bitgo.url(createAPIPath(req));
+  console.log(bitgoURL)
   return redirectRequest(bitgo, method, bitgoURL, req, next);
 };
 
@@ -347,13 +348,13 @@ const handleV2CoinSpecificREST = function(req, res, next) {
 const redirectRequest = function(bitgo, method, url, req, next) {
   switch (method) {
     case 'GET':
-      return bitgo.get(url).result().nodeify();
+      return bitgo.get(url).result();
     case 'POST':
-      return bitgo.post(url).send(req.body).result().nodeify();
+      return bitgo.post(url).send(req.body).result();
     case 'PUT':
-      return bitgo.put(url).send(req.body).result().nodeify();
+      return bitgo.put(url).send(req.body).result();
     case 'DELETE':
-      return bitgo.del(url).send(req.body).result().nodeify();
+      return bitgo.del(url).send(req.body).result();
   }
   // something has presumably gone wrong
   next();
@@ -402,7 +403,7 @@ const prepareBitGo = function(args) {
     params.userAgent = userAgent;
 
     req.bitgo = new BitGoJS.BitGo(params);
-    req.bitgo._promise.longStackSupport = true;
+    console.log(req.bitgo)
 
     next();
   };
@@ -412,7 +413,7 @@ const prepareBitGo = function(args) {
 const promiseWrapper = function(promiseRequestHandler, args) {
   return function(req, res, next) {
     if (args.debug) {
-      console.log('handle: ' + url.parse(req.url).pathname);
+      console.log('handle: ' + url.parse(req.url));
     }
     Promise.try(promiseRequestHandler, req, res, next)
     .then(function(result) {

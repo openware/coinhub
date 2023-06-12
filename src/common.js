@@ -3,7 +3,7 @@ const _ = require('lodash');
 
 exports.Environments = {
   prod: {
-    uri: 'https://www.bitgo.com',
+    uri: 'https://app.bitgo.com',
     networks: {
       btc: bitcoin.networks.bitcoin
     },
@@ -51,7 +51,7 @@ exports.Environments = {
     blockrApiBaseUrl: 'https://btc.blockr.io/api/v1'
   },
   test: {
-    uri: 'https://test.bitgo.com',
+    uri: 'https://app.bitgo-test.com',
     networks: {
       tbtc: bitcoin.networks.testnet
     },
