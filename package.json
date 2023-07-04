@@ -1,33 +1,33 @@
 {
-  "name": "coinhub",
-  "version": "0.2.4",
-  "description": "BitGo proxy for peatio.tech",
-  "homepage": "https://github.com/rubykube/coinhub",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rubykube/coinhub.git"
-  },
-  "author": {
-    "name": "Ali Shanaakh",
-    "email": "ashanaakh@heliostech.fr"
-  },
-  "license": "LGPL-3.0",
-  "bugs": {
-    "url": "https://github.com/rubykube/coinhub/issues"
-  },
-  "dependencies": {
-    "argparse": "^2.0.1",
-    "bitgo": "^18.0.1",
-    "bitgo-utxo-lib": "^1.8.0",
-    "bluebird": "^3.7.2",
-    "express": "^4.18.2",
-    "fs": "^0.0.1-security",
-    "http-proxy": "^1.18.1",
-    "morgan": "^1.10.0",
-    "path": "^0.12.7",
-    "url": "^0.11.0"
-  }
+    "name": "coinhub",
+    "version": "0.2.4",
+    "description": "BitGo proxy for peatio.tech",
+    "homepage": "https://github.com/rubykube/coinhub",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rubykube/coinhub.git"
+    },
+    "author": {
+        "name": "Ali Shanaakh",
+        "email": "ashanaakh@heliostech.fr"
+    },
+    "license": "LGPL-3.0",
+    "bugs": {
+        "url": "https://github.com/rubykube/coinhub/issues"
+    },
+    "dependencies": {
+        "@bitgo/utxo-lib": "9.2.0",
+        "argparse": "^2.0.1",
+        "bitgo": "^18.0.1",
+        "bluebird": "^3.7.2",
+        "express": "^4.18.2",
+        "fs": "^0.0.1-security",
+        "http-proxy": "^1.18.1",
+        "morgan": "^1.10.0",
+        "path": "^0.12.7",
+        "url": "^0.11.0"
+    }
 }
