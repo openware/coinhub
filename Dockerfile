@@ -1,15 +1,12 @@
-FROM node:16.14.2
+FROM node:16.16-alpine
 
 ENV HOME /app
 ENV BITGO_ENV test
 
-RUN apt-get update && apt-get -y upgrade
-RUN apt-get -y install build-essential
-
-RUN mkdir ${HOME}
+RUN apk update
+RUN apk upgrade
 
 WORKDIR ${HOME}
-
 COPY ./package.json ./yarn.lock ./
 
 RUN yarn install --production
